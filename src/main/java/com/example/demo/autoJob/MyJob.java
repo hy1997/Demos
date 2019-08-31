@@ -14,7 +14,7 @@ public class MyJob extends QuartzJobBean {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        GetWeb gw = new GetWeb("http://image.baidu.com");
+        GetWeb gw = new GetWeb("http://www.byton.com");
         gw.getWebByHomePage();
         System.out.println("end  My Job：" + LocalDateTime.now());
 

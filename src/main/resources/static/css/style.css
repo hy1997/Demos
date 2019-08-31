@@ -1,5 +1,5 @@
 body{
-    background: url("https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1567265636776&amp;di=5182a3847e1e4b7fc7c3aa6c8cdf2996&amp;imgtype=0&amp;src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%112F201601%2F07%2F20160107170247_5GX3k.jpeg");
+    background: url("http://b.hiphotos.baidu.com/image/pic/item/f2deb48f8c5494eed9565a5826f5e0fe99257e7e.jpg");
 
     animation-name:myfirst;
     animation-duration:12s;
@@ -13,10 +13,10 @@ body{
 }
 @keyframes myfirst
 {
-    0%   {background:url("http://b.hiphotos.baidu.com/image/pic/item/0eb30f2442a7d9337119f7dba74bd11372f001e0.jpg");}
-    34%  {background:url("http://a.hiphotos.baidu.com/image/pic/item/9a504fc2d5628535bdaac29e9aef76c6a6ef63c2.jpg");}
-    67%  {background:url("http://g.hiphotos.baidu.com/image/pic/item/21a4462309f7905296a7578106f3d7ca7acbd5d0.jpg");}
-    100% {background:url("http://b.hiphotos.baidu.com/image/pic/item/0eb30f2442a7d9337119f7dba74bd11372f001e0.jpg");}
+    0%   {background:url("http://d.hiphotos.baidu.com/image/pic/item/359b033b5bb5c9eaee2367a2de39b6003bf3b39b.jpg");}
+    34%  {background:url("http://f.hiphotos.baidu.com/image/pic/item/79f0f736afc379319740e268e0c4b74543a91142.jpg");}
+    67%  {background:url("http://e.hiphotos.baidu.com/image/pic/item/faedab64034f78f06b54e0b272310a55b3191c17.jpg");}
+    100% {background:url("http://d.hiphotos.baidu.com/image/pic/item/3812b31bb051f81935ab7b0bd1b44aed2f73e7e1.jpg");}
 }
 .form{background: rgba(255,255,255,0.2);width:400px;margin:120px auto;}
 /*阴影*/
