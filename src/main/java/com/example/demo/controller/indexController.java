@@ -1,31 +1,42 @@
 package com.example.demo.controller;
 
 import com.example.demo.Utils.MD5Util;
+import com.example.demo.po.User;
+import com.example.demo.service.imp.UserServiceImp;
+import com.example.redis.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.thymeleaf.util.DateUtils;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
+import java.util.List;
 
-@Controller
-public class indexController {
-
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
-    }
-
-    @RequestMapping("/index1")
-    public String index1(){
-        return "head";
-    }
+@RestController
+public class IndexController {
+    @Autowired
+    UserServiceImp userServiceImp;
+//    @Autowired
+//    RedisUtil redisUtil;
 
     @RequestMapping(value = "/login", produces = "text/json;charset=UTF-8")
-    @ResponseBody
-    public String login(HttpServletRequest request) {
-
-        return returnSuccess(null);
+    public String login(@RequestParam("username") String username, @RequestParam("password") String passwrod) {
+        List<User> users = userServiceImp.userByUsername(username);
+        if (users.isEmpty()) {
+            for (User u : users) {
+                if (MD5Util.MD5(passwrod).equals(u.getPassword())) {
+                    //设置缓存时间为90000秒
+//                    redisUtil.set("username",username,9000);
+                    return returnSuccess(null);
+                }
+            }
+        } else {
+            return returnFailed("用户名不正确!");
+        }
+        return returnFailed("用户不存在!");
     }
 
     public String returnSuccess(String str) {
