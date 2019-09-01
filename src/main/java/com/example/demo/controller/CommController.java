@@ -21,5 +21,9 @@ public class CommController {
         return "head";
     }
 
+    @RequestMapping("/shrn")
+    public String shrn() {
+        return "shrn";
+    }
 
 }

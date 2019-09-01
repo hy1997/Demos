@@ -25,7 +25,6 @@ public class IndexController {
     @RequestMapping(value = "/login", produces = "text/json;charset=UTF-8")
     public String login(@RequestParam("username") String username, @RequestParam("password") String passwrod) {
         List<User> users = userServiceImp.userByUsername(username);
-        if (users.isEmpty()) {
             for (User u : users) {
                 if (MD5Util.MD5(passwrod).equals(u.getPassword())) {
                     //设置缓存时间为90000秒
@@ -33,10 +32,8 @@ public class IndexController {
                     return returnSuccess(null);
                 }
             }
-        } else {
             return returnFailed("用户名不正确!");
-        }
-        return returnFailed("用户不存在!");
+
     }
 
     public String returnSuccess(String str) {

@@ -34,8 +34,77 @@
     <link rel="stylesheet" href="https://www.byton.com/css/square/grey.css"/>
     <link rel="stylesheet" href="https://www.byton.com/css/style.css?v=2.0.28">
     <script src="https://www.byton.com/lib/js/cookieconsent.min.js"></script>
-    <script>window.SITE = {domain: "com", language: "en"};
-    window.addEventListener("load", function () {    // fix for cookie window becoming "floating" on mobile devices    window.cookieconsent.utils.isMobile = function() { return false };    // initialise cookie consent choice    window.cookieconsent.initialise({        "type": "opt-out",        "position": "bottom",        "revokable": false,        "content": {            "dismiss": "ACCEPT",            "deny": "DECLINE"        },        "elements": {            "header": '<span class="cc-header">{{header}}</span>&nbsp;',            "messagelink":            '<div>' +                '<p id="cookieconsent:desc" class="cc-message">This website stores cookies on your computer. These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media. To find out more about the cookies we use, see our <a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="data-privacy" target="_blank">Privacy Policy.</a></p>' +                '<p id="cookieconsent:desc2" class="cc-message">If you decline, your information won’t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.</p>' +            '</div>',            "dismiss": '<a aria-label="accept cookie message" tabindex="0" class="box foo cc-btn cc-dismiss">{{dismiss}}</a>',            "deny": '<a aria-label="deny cookies" tabindex="0" class="box foo cc-btn cc-deny">{{deny}}</a>',        },        "compliance": {            'opt-out': '<div class="cc-custom-compliance">{{dismiss}}{{deny}}</div>',        },        onInitialise: function (status) {            if (this.hasConsented()) {                // enable cookies                initialiseTracking();            }            else {                // disable cookies                console.log("tracking disabled");            }        },        onStatusChange: function (status, chosenBefore) {            if (this.hasConsented()) {                // enable cookies                initialiseTracking();            }            else {                // disable cookies                console.log("tracking disabled");            }        },        onRevokeChoice: function () {            window.location.reload();        },    })});function initialiseTracking() {    console.log("initialising tracking");        // Google Analytics initialiser    (function (i, s, o, g, r, a, m) {        i['GoogleAnalyticsObject'] = r;        i[r] = i[r] || function () {            (i[r].q = i[r].q || []).push(arguments)        }, i[r].l = 1 * new Date();        a = s.createElement(o), m = s.getElementsByTagName(o)[0];        a.async = 1;        a.src = g;        m.parentNode.insertBefore(a, m)    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');    ga('create', 'UA-102870844-1', 'auto');    ga('set', 'anonymizeIp', true);    ga('send', 'pageview');    // Google Tag Manager initialiser    (function (w, d, s, l, i) {        w[l] = w[l] || [];        w[l].push({            'gtm.start': new Date().getTime(),            event: 'gtm.js'        });        var f = d.getElementsByTagName(s)[0],            j = d.createElement(s),            dl = l !== 'dataLayer' ? '&l=' + l : '';        j.async = true;        j.src =            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;        f.parentNode.insertBefore(j, f);    })(window, document, 'script', 'dataLayer', 'GTM-PFH7G3V');    }</script>
+    <script>
+        window.SITE = {domain: "com", language: "en"};
+        window.addEventListener("load", function () {    // fix for cookie window becoming "floating" on mobile devices
+            window.cookieconsent.utils.isMobile = function () {
+                return false
+            }）;    // initialise cookie consent choice
+            window.cookieconsent.initialise({
+                "type": "opt-out",
+                "position": "bottom",
+                "revokable": false,
+                "content": {"dismiss": "ACCEPT", "deny": "DECLINE"},
+                "elements": {
+                    "header": '<span class="cc-header">{{header}}</span>&nbsp;',
+                    "messagelink": '<div>' + '<p id="cookieconsent:desc" class="cc-message">This website stores cookies on your computer. These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media. To find out more about the cookies we use, see our <a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="data-privacy" target="_blank">Privacy Policy.</a></p>' + '<p id="cookieconsent:desc2" class="cc-message">If you decline, your information won’t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.</p>' + '</div>',
+                    "dismiss": '<a aria-label="accept cookie message" tabindex="0" class="box foo cc-btn cc-dismiss">{{dismiss}}</a>',
+                    "deny": '<a aria-label="deny cookies" tabindex="0" class="box foo cc-btn cc-deny">{{deny}}</a>',
+                },
+                "compliance": {'opt-out': '<div class="cc-custom-compliance">{{dismiss}}{{deny}}</div>',},
+                onInitialise: function (status) {
+                    if (this.hasConsented()) {
+                        // enable cookies
+                        initialiseTracking();
+                    } else {                // disable cookies
+                        console.log("tracking disabled");
+                    }
+                }, onStatusChange: function (status, chosenBefore) {
+                    if (this.hasConsented()) {                // enable cookies
+                        initialiseTracking();
+                    } else {                // disable cookies
+                        console.log("tracking disabled");
+                    }
+                }, onRevokeChoice: function () {
+                    window.location.reload();
+                },
+            })
+        });
+
+        function initialiseTracking() {
+            console.log("initialising tracking");
+            / Google Analytics initialiser    (function (i, s, o, g, r, a, m) {        i['GoogleAnalyticsObject'] = r;        i[r] = i[r] || function () {            (i[r].q = i[r].q || []).push(arguments)        }, i[r].l = 1 * new Date();        a = s.createElement(o), m = s.getElementsByTagName(o)[0];        a.async = 1;        a.src = g;        m.parentNode.insertBefore(a, m)    })(window, document, 'script', 'https:/
+            /www.google-analytics.com/
+            analytics.js
+            ', '
+            ga
+            ');    ga('
+            create
+            ', '
+            UA - 102870844 - 1
+            ', '
+            auto
+            ');    ga('
+            set
+            ', '
+            anonymizeIp
+            ', true);    ga('
+            send
+            ', '
+            pageview
+            ');    // Google Tag Manager '
+            initialiser(function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    '
+                    gtm.start
+                    ': new Date().getTime(),            event: '
+                    gtm.js
+                    '        });        var f = d.getElementsByTagName(s)[0],            j = d.createElement(s),            dl = l !== '
+                    dataLayer
+                    ' ? ' & l = ' + l : '
+                ';        j.async = true;        j.src =            '
+                https://www.googletagmanager.com/gtm.js?id=' + i + dl;        f.parentNode.insertBefore(j, f);    })(window, document, 'script', 'dataLayer', 'GTM-PFH7G3V');    }</script>
 </head>
 <body class="bg-white">
 <header class="header-bg">
@@ -77,7 +146,7 @@
                                                                                                  alt="Main Logo"> </a>
                             </li>
                             <li><a class="products" href="#">PRODUCTS</a></li>
-                            <li><a class="" href="m-byte.php">M-Byte</a></li>
+                            <li><a class="" href="javascript:shrn()">M-Byte</a></li>
                             <li><a class="" href="m-byte-concept.php">M-Byte Concept</a></li>
                             <li><a class="" href="k-byte-concept.php">K-Byte Concept</a></li>
                             <li class="menu-border-left"><a class="" href="technology.php">Technology</a></li>
@@ -166,7 +235,8 @@
                                 <div class="square">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.9/tile_job1_job2.jpg" class="hidden-xs img-responsive"
+                                        <img class="hidden-xs img-responsive"
+                                             src="https://www.byton.com/img/2.9/tile_job1_job2.jpg"
                                              alt="test image one" width="640" height="640"> <img
                                             src="https://www.byton.com/img/2.9/tile_job1_job2_mobile.jpg"
                                             class="hidden-sm hidden-md hidden-lg img-responsive" alt="test image one"
@@ -186,7 +256,8 @@
                                 <div class="square" onclick="location.href='byton-place.php'">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.11/tile-byton-place.jpg" class="img-responsive"
+                                        <img class="img-responsive"
+                                             src="https://www.byton.com/img/2.11/tile-byton-place.jpg"
                                              alt="test image one" width="640" height="640"></div>
                                     <div class="square-tile"><h2 class="square-title">BYTON Place</h2>
                                         <p class="square-desc">Time to connect.</p>
@@ -216,7 +287,8 @@
                                 <div class="square" onclick="location.href='co-creator.php'">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.11/home-co-creator-tile-en.jpg" class="img-responsive"
+                                        <img class="img-responsive"
+                                             src="https://www.byton.com/img/2.11/home-co-creator-tile-en.jpg"
                                              alt="test image one" width="640" height="640"></div>
                                     <div class="square-tile"><h2 class="square-title">BYTON Co-Creation</h2>
                                         <p class="square-desc">It is about jointly creating value.</p>
@@ -233,7 +305,8 @@
                                      onclick="!isVisualiserSupported() ? location.href='k-byte-concept.php#visualizer' : $('#visualizer-modal').modal('show'); ">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.9/tile_visualizer.jpg" class="img-responsive"
+                                        <img class="img-responsive"
+                                             src="https://www.byton.com/img/2.9/tile_visualizer.jpg"
                                              alt="test-image-two" width="640" height="480"></div>
                                     <div class="square-tile"><h2 class="square-title">Visualizer</h2>
                                         <p class="square-desc">Experience BYTON now.</p>
@@ -408,7 +481,8 @@
 </footer>    <!-- Image share modal -->
 <div class="modal fade" id="image-share" role="dialog">
     <div class="modal-dialog image-share-modal">        <!-- Modal content-->
-        <div class="modal-content"><a href="https://www.byton.com/" class="logo"> <img src="https://www.byton.com/img/signup-b-symbol.svg">
+        <div class="modal-content"><a class="logo" href="https://www.byton.com/"> <img
+                src="https://www.byton.com/img/signup-b-symbol.svg">
         </a>
             <p class="share-message">SHARE THE IMAGE</p>
             <div class="h-line"></div>
@@ -426,7 +500,8 @@
 </div><!-- New registration modal -->
 <div class="modal fade" id="register" role="dialog">
     <div class="modal-dialog inquiry-modal register-modal modal-md">        <!-- Modal content-->
-        <div class="modal-content sign-up-popup"><img src="https://www.byton.com/img/b-white.svg" class="logo" alt="Logo" height="68"
+        <div class="modal-content sign-up-popup"><img alt="Logo" class="logo"
+                                                      height="68" src="https://www.byton.com/img/b-white.svg"
                                                       width="74">
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
@@ -740,7 +815,8 @@
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
             </div>
-            <div class="content"><a href="https://www.byton.com/" class="logo"> <img src="https://www.byton.com/img/signup-b-symbol.svg">
+            <div class="content"><a class="logo" href="https://www.byton.com/"> <img
+                    src="https://www.byton.com/img/signup-b-symbol.svg">
             </a>
                 <form data-sap-cp-key="A97862CA4014011F446A1B6FA0194B9EF2956E6A"
                       class="sapCRLPage sapCpContentPage sapCpContentPageLoading" data-sap-cp-prefill-data="true"
@@ -775,7 +851,8 @@
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
             </div>
-            <div class="content sign-up-wrapper"><a class="logo"> <img src="https://www.byton.com/img/signup-b-symbol.svg"> </a>
+            <div class="content sign-up-wrapper"><a class="logo"> <img
+                    src="https://www.byton.com/img/signup-b-symbol.svg"> </a>
                 <form data-sap-cp-key="89D6D163304E40431315101BD7AE0F9330BB2E19"
                       class="sapCRLPage sapCpContentPage sapCpContentPageLoading" data-sap-cp-prefill-data="true"
                       data-sap-cp-version="11.4.5">
@@ -842,7 +919,8 @@
 </div><!-- Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" role="dialog">
     <div class="modal-dialog inquiry-modal modal-md">        <!-- Modal content-->
-        <div class="modal-content sign-up-popup"><img src="https://www.byton.com/img/b-white.svg" class="logo" alt="Logo" height="68"
+        <div class="modal-content sign-up-popup"><img alt="Logo" class="logo"
+                                                      height="68" src="https://www.byton.com/img/b-white.svg"
                                                       width="74">
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
@@ -968,7 +1046,8 @@
 </div>
 <div class="modal fade" id="contactModal" role="dialog">
     <div class="modal-dialog inquiry-modal modal-md">
-        <div class="modal-content sign-up-popup"><img src="https://www.byton.com/img/b-white.svg" class="logo" alt="Logo" height="68"
+        <div class="modal-content sign-up-popup"><img alt="Logo" class="logo"
+                                                      height="68" src="https://www.byton.com/img/b-white.svg"
                                                       width="74">
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
@@ -1024,7 +1103,8 @@
     var current_job = 'Job2';
 
     function OnLoaderClicked(job) {
-        current_job = job;        // LOADS THE UNITY INTO A DIV CALLED gameContainer ( defined below)        if (!gameInstance) {            gameInstance = UnityLoader.instantiate("gameContainer", "/visualiser-v2/Build/visualiser-v2.json", {                onProgress: CustomUnityProgress            });                        // PUT THE STUFF TO HIDE / SHOW ON CLICK HERE            $('.row.car-labels').hide();            // WE MAKE THE UNITY FILE DIDDY WHILST ITS LOADING            $('.gameContainer').hide();        };        // PROGRESS UPDATE FUNCTION        function CustomUnityProgress(container, progress) {                        $('.LoadPercent').text(Math.ceil(Math.round(progress * 100)+5,99) + "%");}    };    // THIS IS CALLED BY UNITY , WHEN IT HAS STOPPED ITS INTERNAL LOADER    function OnSceneReady() {        $('.gameContainer').show();        $('.gameContainer').width("100%");        $('.gameContainer').height("100%");        $('.PreloadText').remove();        $('.visualizer-popup').hide();                if ( current_job == 'Job1'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job1");        }else if ( current_job == 'Job2'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job2");        }        return current_job;            }</script>
+        current_job = job;
+    }  // LOADS THE UNITY INTO A DIV CALLED gameContainer ( defined below)        if (!gameInstance) {            gameInstance = UnityLoader.instantiate("gameContainer", "/visualiser-v2/Build/visualiser-v2.json", {                onProgress: CustomUnityProgress            });                        // PUT THE STUFF TO HIDE / SHOW ON CLICK HERE            $('.row.car-labels').hide();            // WE MAKE THE UNITY FILE DIDDY WHILST ITS LOADING            $('.gameContainer').hide();        };        // PROGRESS UPDATE FUNCTION        function CustomUnityProgress(container, progress) {                        $('.LoadPercent').text(Math.ceil(Math.round(progress * 100)+5,99) + "%");}    };    // THIS IS CALLED BY UNITY , WHEN IT HAS STOPPED ITS INTERNAL LOADER    function OnSceneReady() {        $('.gameContainer').show();        $('.gameContainer').width("100%");        $('.gameContainer').height("100%");        $('.PreloadText').remove();        $('.visualizer-popup').hide();                if ( current_job == 'Job1'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job1");        }else if ( current_job == 'Job2'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job2");        }        return current_job;            }</script>
     <script src="https://www.byton.com/lib/js/jquery.min.js"></script>
     <script src="https://www.byton.com/lib/js/bootstrap.min.js"></script>
     <script src="https://www.byton.com/lib/js/jquery.fullpage.min.js"></script>
@@ -1102,8 +1182,9 @@ content<!doctype html>
                         <div class="mob-lang-wrapper visible-xs visible-sm"><a href="javascript:void(0)" class="active">English</a>
                             <span>/</span> <a href="/cn/index.php">中文</a></div>
                         <ul class="nav navbar-nav">
-                            <li class="mob-symbol"><a href="index.php" class="logo-symbol"> <img src="https://www.byton.com/img/b-symbol.svg"
-                                                                                                 alt="Main Logo"> </a>
+                            <li class="mob-symbol"><a class="logo-symbol" href="index.php"> <img
+                                    alt="Main Logo"
+                                    src="https://www.byton.com/img/b-symbol.svg"> </a>
                             </li>
                             <li><a class="products " href="#">Products</a></li>
                             <li><a class="" href="moments.php">Moments</a></li>
@@ -1123,8 +1204,9 @@ content<!doctype html>
                 <div class="row-mobile">
                     <div class="mobile-submenu-container">
                         <ul class="sub-pages">
-                            <li class="mob-symbol"><a href="index.php" class="logo-symbol"> <img src="https://www.byton.com/img/b-symbol.svg"
-                                                                                                 alt="Main Logo"> </a>
+                            <li class="mob-symbol"><a class="logo-symbol" href="index.php"> <img
+                                    alt="Main Logo"
+                                    src="https://www.byton.com/img/b-symbol.svg"> </a>
                             </li>
                             <li><a class="products" href="#">PRODUCTS</a></li>
                             <li><a class="" href="m-byte.php">M-Byte</a></li>
@@ -1216,7 +1298,8 @@ content<!doctype html>
                                 <div class="square">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.9/tile_job1_job2.jpg" class="hidden-xs img-responsive"
+                                        <img class="hidden-xs img-responsive"
+                                             src="https://www.byton.com/img/2.9/tile_job1_job2.jpg"
                                              alt="test image one" width="640" height="640"> <img
                                             src="https://www.byton.com/img/2.9/tile_job1_job2_mobile.jpg"
                                             class="hidden-sm hidden-md hidden-lg img-responsive" alt="test image one"
@@ -1236,7 +1319,8 @@ content<!doctype html>
                                 <div class="square" onclick="location.href='byton-place.php'">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.11/tile-byton-place.jpg" class="img-responsive"
+                                        <img class="img-responsive"
+                                             src="https://www.byton.com/img/2.11/tile-byton-place.jpg"
                                              alt="test image one" width="640" height="640"></div>
                                     <div class="square-tile"><h2 class="square-title">BYTON Place</h2>
                                         <p class="square-desc">Time to connect.</p>
@@ -1266,7 +1350,8 @@ content<!doctype html>
                                 <div class="square" onclick="location.href='co-creator.php'">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.11/home-co-creator-tile-en.jpg" class="img-responsive"
+                                        <img class="img-responsive"
+                                             src="https://www.byton.com/img/2.11/home-co-creator-tile-en.jpg"
                                              alt="test image one" width="640" height="640"></div>
                                     <div class="square-tile"><h2 class="square-title">BYTON Co-Creation</h2>
                                         <p class="square-desc">It is about jointly creating value.</p>
@@ -1283,7 +1368,8 @@ content<!doctype html>
                                      onclick="!isVisualiserSupported() ? location.href='k-byte-concept.php#visualizer' : $('#visualizer-modal').modal('show'); ">
                                     <div class="zoom">
                                         <div class="foreground"></div>
-                                        <img src="https://www.byton.com/img/2.9/tile_visualizer.jpg" class="img-responsive"
+                                        <img class="img-responsive"
+                                             src="https://www.byton.com/img/2.9/tile_visualizer.jpg"
                                              alt="test-image-two" width="640" height="480"></div>
                                     <div class="square-tile"><h2 class="square-title">Visualizer</h2>
                                         <p class="square-desc">Experience BYTON now.</p>
@@ -1458,7 +1544,8 @@ content<!doctype html>
 </footer>    <!-- Image share modal -->
 <div class="modal fade" id="image-share" role="dialog">
     <div class="modal-dialog image-share-modal">        <!-- Modal content-->
-        <div class="modal-content"><a href="https://www.byton.com/" class="logo"> <img src="https://www.byton.com/img/signup-b-symbol.svg">
+        <div class="modal-content"><a class="logo" href="https://www.byton.com/"> <img
+                src="https://www.byton.com/img/signup-b-symbol.svg">
         </a>
             <p class="share-message">SHARE THE IMAGE</p>
             <div class="h-line"></div>
@@ -1476,7 +1563,8 @@ content<!doctype html>
 </div><!-- New registration modal -->
 <div class="modal fade" id="register" role="dialog">
     <div class="modal-dialog inquiry-modal register-modal modal-md">        <!-- Modal content-->
-        <div class="modal-content sign-up-popup"><img src="https://www.byton.com/img/b-white.svg" class="logo" alt="Logo" height="68"
+        <div class="modal-content sign-up-popup"><img alt="Logo" class="logo"
+                                                      height="68" src="https://www.byton.com/img/b-white.svg"
                                                       width="74">
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
@@ -1790,7 +1878,8 @@ content<!doctype html>
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
             </div>
-            <div class="content"><a href="https://www.byton.com/" class="logo"> <img src="https://www.byton.com/img/signup-b-symbol.svg">
+            <div class="content"><a class="logo" href="https://www.byton.com/"> <img
+                    src="https://www.byton.com/img/signup-b-symbol.svg">
             </a>
                 <form data-sap-cp-key="A97862CA4014011F446A1B6FA0194B9EF2956E6A"
                       class="sapCRLPage sapCpContentPage sapCpContentPageLoading" data-sap-cp-prefill-data="true"
@@ -1825,7 +1914,8 @@ content<!doctype html>
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
             </div>
-            <div class="content sign-up-wrapper"><a class="logo"> <img src="https://www.byton.com/img/signup-b-symbol.svg"> </a>
+            <div class="content sign-up-wrapper"><a class="logo"> <img
+                    src="https://www.byton.com/img/signup-b-symbol.svg"> </a>
                 <form data-sap-cp-key="89D6D163304E40431315101BD7AE0F9330BB2E19"
                       class="sapCRLPage sapCpContentPage sapCpContentPageLoading" data-sap-cp-prefill-data="true"
                       data-sap-cp-version="11.4.5">
@@ -1878,7 +1968,9 @@ content<!doctype html>
             </div>
             <div class="content sign-up-wrapper">
                 <div class="slider-container sign-up-wrapper"><p>Scan the QR code to follow us on WeChat</p>
-                    <h3>扫码关注BYTON官方微信</h3>                    <img width=50% src="https://www.byton.com/img/wechat_qr.jpg" alt="QR"
+                    <h3>扫码关注BYTON官方微信</h3>                    <img alt="QR"
+                                                                   src="https://www.byton.com/img/wechat_qr.jpg"
+                                                                   width=50%
                                                                    class="qr-code"/>
                     <h3 class="last-one"> WeChat ID 微信: Byton_Official </h3></div>
             </div>
@@ -1892,7 +1984,8 @@ content<!doctype html>
 </div><!-- Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" role="dialog">
     <div class="modal-dialog inquiry-modal modal-md">        <!-- Modal content-->
-        <div class="modal-content sign-up-popup"><img src="https://www.byton.com/img/b-white.svg" class="logo" alt="Logo" height="68"
+        <div class="modal-content sign-up-popup"><img alt="Logo" class="logo"
+                                                      height="68" src="https://www.byton.com/img/b-white.svg"
                                                       width="74">
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
@@ -2018,7 +2111,8 @@ content<!doctype html>
 </div>
 <div class="modal fade" id="contactModal" role="dialog">
     <div class="modal-dialog inquiry-modal modal-md">
-        <div class="modal-content sign-up-popup"><img src="https://www.byton.com/img/b-white.svg" class="logo" alt="Logo" height="68"
+        <div class="modal-content sign-up-popup"><img alt="Logo" class="logo"
+                                                      height="68" src="https://www.byton.com/img/b-white.svg"
                                                       width="74">
             <div class="close-btn">
                 <button type="button" class="close" data-dismiss="modal"></button>
@@ -2070,11 +2164,19 @@ content<!doctype html>
     </div>
     <script src="https://www.byton.com/visualiser-v2/TemplateData/UnityProgress.js?v=20180508"></script>
     <script src="https://www.byton.com/visualiser-v2/Build/UnityLoader-NoPopup.js?v=20180508"></script>
-    <script type="text/javascript">    var gameInstance = null;
-    var current_job = 'Job2';
+    <script>
+        var getcontentPath = "http://" + window.location.host + "/";
+        var contentPath = getcontentPath;// 获取应用路径
+        /*2.触发js由window对象的location去跳转*/
+        function shrn() {
+            window.location.href = contentPath + "/shrn";
+        }</script>
+    <script type="text/javascript">
 
-    function OnLoaderClicked(job) {
-        current_job = job;        // LOADS THE UNITY INTO A DIV CALLED gameContainer ( defined below)        if (!gameInstance) {            gameInstance = UnityLoader.instantiate("gameContainer", "/visualiser-v2/Build/visualiser-v2.json", {                onProgress: CustomUnityProgress            });                        // PUT THE STUFF TO HIDE / SHOW ON CLICK HERE            $('.row.car-labels').hide();            // WE MAKE THE UNITY FILE DIDDY WHILST ITS LOADING            $('.gameContainer').hide();        };        // PROGRESS UPDATE FUNCTION        function CustomUnityProgress(container, progress) {                        $('.LoadPercent').text(Math.ceil(Math.round(progress * 100)+5,99) + "%");}    };    // THIS IS CALLED BY UNITY , WHEN IT HAS STOPPED ITS INTERNAL LOADER    function OnSceneReady() {        $('.gameContainer').show();        $('.gameContainer').width("100%");        $('.gameContainer').height("100%");        $('.PreloadText').remove();        $('.visualizer-popup').hide();                if ( current_job == 'Job1'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job1");        }else if ( current_job == 'Job2'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job2");        }        return current_job;            }</script>
+
+        var gameInstance = null;
+        var current_job = 'Job2';
+        // PUT THE STUFF TO HIDE / SHOW ON CLICK HERE            $('.row.car-labels').hide();            // WE MAKE THE UNITY FILE DIDDY WHILST ITS LOADING            $('.gameContainer').hide();        };        // PROGRESS UPDATE FUNCTION        function CustomUnityProgress(container, progress) {                        $('.LoadPercent').text(Math.ceil(Math.round(progress * 100)+5,99) + "%");}    };    // THIS IS CALLED BY UNITY , WHEN IT HAS STOPPED ITS INTERNAL LOADER    function OnSceneReady() {        $('.gameContainer').show();        $('.gameContainer').width("100%");        $('.gameContainer').height("100%");        $('.PreloadText').remove();        $('.visualizer-popup').hide();                if ( current_job == 'Job1'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job1");        }else if ( current_job == 'Job2'){            gameInstance.SendMessage("UI Controller", "LoadScene", "Job2");        }        return current_job;            }</script>
     <script src="https://www.byton.com/lib/js/jquery.min.js"></script>
     <script src="https://www.byton.com/lib/js/bootstrap.min.js"></script>
     <script src="https://www.byton.com/lib/js/jquery.fullpage.min.js"></script>
@@ -2095,6 +2197,26 @@ content<!doctype html>
     <script src="https://www.byton.com/js/general-information.js"></script>
     <script src="https://www.byton.com/js/onload.js?v=2.0.27"></script>
     <script src="https://www.byton.com/js/circular-countdown-cn.js"></script>
-    <script type="text/javascript">    $(window).on('load', function () { // makes sure the whole site is loaded        setTimeout(function () {            var url = window.location.href;            var hash = window.location.hash;            if (url.indexOf('?welcome') != -1) {                $.getScript("/js/sapContentPage.js");                $('#welcome').modal('show');            }            if (url.indexOf('?unsubscribe') != -1) {                $.getScript("/js/sapContentPage.js");                $('#unsubscribe').modal('show');            }            if (url.indexOf('?wechat') != -1) {                $('#wechat').modal('show');            }            if(hash == "#news") {                $('#register').modal('show');            }        }, 1000);    });</script>
+    <script type="text/javascript">
+        $(window).on('load', function () { // makes sure the whole site is loaded
+            setTimeout(function () {
+                var url = window.location.href;
+                var hash = window.location.hash;
+                if (url.indexOf('?welcome') != -1) {
+                    $.getScript("/js/sapContentPage.js");
+                    $('#welcome').modal('show');
+                }
+                if (url.indexOf('?unsubscribe') != -1) {
+                    $.getScript("/js/sapContentPage.js");
+                    $('#unsubscribe').modal('show');
+                }
+                if (url.indexOf('?wechat') != -1) {
+                    $('#wechat').modal('show');
+                }
+                if (hash == "#news") {
+                    $('#register').modal('show');
+                }
+            }, 1000);
+        });</script>
 </body>
 </html>
