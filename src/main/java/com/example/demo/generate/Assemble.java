@@ -32,7 +32,7 @@ public class Assemble {
                     stringBuffer = new StringBuffer();
                     String[] address=dataSourceConfiguration.getAddress().split("/");
                     String addresss=address[address.length-3]+"."+address[address.length-2]+"."+address[address.length-1]+";";
-                    stringBuffer .append("package "+addresss+"\r\n"+"\r\n"+"\r\n");
+                    stringBuffer.append("package  com." + addresss + "\r\n" + "\r\n" + "\r\n");
                     stringBuffer.append("public  class "+ GenerateUtils.toUpper(tableName )+"{");
                     while (resultSet1.next()) {
                         stringBuffer.append("\r\n"+"/**"+"\r\n"+"*" +resultSet1.getString("COMMENTS") + "\r\n"+"*/");

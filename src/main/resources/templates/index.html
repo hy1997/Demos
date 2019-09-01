@@ -5,11 +5,55 @@
     <title>login</title>
 
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script sec="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript">
+        var getcontentPath = "http://" + window.location.host + "/";
+        var contentPath = getcontentPath;// 获取应用路径
+        $(function () {
+            $("#login").click(function () {
+                var $username = $("#username");
+                var $password = $("#password");
+                if ($username.val() == "") {
+                    $username.focus();
+                    alert('请输入账户');
+                    return false;
+                } else if ($password.val() == "") {
+                    $password.focus();
+                    alert('请输入密码');
+                    return false;
+                } else {
+                    CheckLogin(0);
+                }
+            });
+        });
 
+        //登录验证
+        function CheckLogin(autologin) {
+            var username = $.trim($("#username").val());
+            var password = $.trim($("#password").val());
+            $.ajax({
+                url: contentPath + "login",
+                data: {code: $.trim(username), password: $.trim(password)},
+                type: "post",
+                dataType: "JSON",
+                success: function (data) {
+                    if (data.type) {
+                        window.location.href = contentPath + 'index1';
+                    } else {
+                        alert(data.obj, 0)
+                        //dialogAlert(data.obj, 0);
+                        $("#btnlogin").removeClass('active').removeAttr('disabled');
+                        $("#btnlogin").find('span').show();
+                    }
+                }
+            });
+
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -19,11 +63,13 @@
             <div class="col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Username" id="username" name="username" autofocus="autofocus" maxlength="20"/>
+                    <input autofocus="autofocus" class="form-control required" id="username" maxlength="20"
+                           name="username" placeholder="Username" type="text"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Password" id="password" name="password" maxlength="8"/>
+                    <input class="form-control required" id="password" maxlength="8" name="password"
+                           placeholder="Password" type="password"/>
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
@@ -31,11 +77,13 @@
                     </label>
                 </div>
                 <div class="form-group col-md-offset-9">
-                    <button type="submit" class="btn btn-success pull-right" name="submit">登录</button>
+                    <button class="btn btn-success pull-right" id="login" name="submit" type="submit">登录</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </body>
+
+
 </html>

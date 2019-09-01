@@ -13,7 +13,7 @@ import java.net.URL;
 public class DemoApplication {
 
     public static void main(String[] args) throws IOException {
-        String content="";
+        /*String content="";
         URL url = null;
         try {
             url = new URL("https://www.byton.com/");
@@ -31,7 +31,7 @@ public class DemoApplication {
         reader.close();
         // 返回content
         System.out.println("content"+content);
-
+*/
         SpringApplication.run(DemoApplication.class, args);
     }
 

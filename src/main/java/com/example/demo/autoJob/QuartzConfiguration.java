@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class QuartzConfiguration {
 
     // 使用jobDetail包装job
-    @Bean
+   /* @Bean
     public JobDetail myJobDetail() {
         return JobBuilder.newJob(MyJob.class).withIdentity("myJob").storeDurably().build();
     }
@@ -24,7 +24,7 @@ public class QuartzConfiguration {
                 .withIdentity("myJobTrigger")
                 .withSchedule(scheduleBuilder)
                 .build();
-    }
+    }*/
 
    /* // 使用jobDetail包装job
     @Bean
