@@ -4,13 +4,9 @@ import com.example.demo.Utils.MD5Util;
 import com.example.demo.constant.Constants;
 import com.example.demo.po.User;
 import com.example.demo.service.imp.UserServiceImp;
-import com.example.redis.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
@@ -30,10 +26,11 @@ public class IndexController {
             if (users.isEmpty()) {
                 User user = new User();
                 user.setUsername(username);
-                user.setPassword(passwrod);
+                user.setPassword(MD5Util.MD5(passwrod));
                 userServiceImp.insert(user);
+                return returnSuccess(stringToJson("新增用户成功"), false);
             } else {
-                return returnFailed("该用户已存在!");
+                return returnFailed(stringToJson("该用户已存在!请更换用户名"));
             }
         } else if (Constants.LOGIN_1.equals(flg)) {
             List<User> users = userServiceImp.userByUsername(username);
@@ -42,19 +39,22 @@ public class IndexController {
                     //设置缓存时间为90000秒
 //                    redisUtil.set("username",username,9000);
                     return returnSuccess(null);
+                } else {
+                    return returnFailed(stringToJson("用户密码不正确!"));
                 }
             }
-            return returnFailed("用户名不正确!");
+            return returnFailed(stringToJson("用户名不正确!"));
         }
-
-        return returnFailed("用户名不正确!");
-
-
+        return null;
     }
 
     public String returnSuccess(String str) {
+        return returnSuccess(str, true);
+    }
+
+    public String returnSuccess(String str, boolean b) {
         StringBuilder sb = new StringBuilder(128);
-        sb.append("{\"type\":true,\"obj\":");
+        sb.append("{\"type\":" + b + ",\"obj\":");
         if (str != null) {
             sb.append(str);
         } else {
@@ -74,5 +74,9 @@ public class IndexController {
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    public String stringToJson(String sta) {
+        return "\"" + sta + "\"";
     }
 }

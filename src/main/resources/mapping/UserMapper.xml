@@ -8,30 +8,16 @@
         <result column="password" jdbcType="VARCHAR" property="passWord"/>
     </resultMap>
 
-    <select id="userByUsername" parameterType="java.lang.String" resultType="com.example.demo.po.User">
-        select username,password from user
-        <if test="username != null">
-            username= ${username}
-        </if>
-        <if test="password != null">
-            password= ${password}
+    <select id="userByUsername" parameterType="String" resultType="com.example.demo.po.User">
+        select username,password from user where 1=1
+        <if test="_parameter != null">
+            and username= #{username}
         </if>
     </select>
 
-    <insert id="insert" parameterType="com.example.demo.po.User">
-        insert into user
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-
-            <if test="username != null">
-                username,
-            </if>
-            <if test="password != null">
-                password,
-            </if>
-            <if test="userLevelId != null">
-                userLevelId,
-            </if>
-        </trim>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.demo.po.User">
+        insert into user (username,password,register_Ip)
+        values (#{username},#{password},#{registerIp})
     </insert>
 
 
