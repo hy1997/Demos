@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.Utils.MD5Util;
+import com.example.demo.constant.Constants;
 import com.example.demo.po.User;
 import com.example.demo.service.imp.UserServiceImp;
 import com.example.redis.RedisUtil;
@@ -23,8 +24,19 @@ public class IndexController {
 //    RedisUtil redisUtil;
 
     @RequestMapping(value = "/login", produces = "text/json;charset=UTF-8")
-    public String login(@RequestParam("username") String username, @RequestParam("password") String passwrod) {
-        List<User> users = userServiceImp.userByUsername(username);
+    public String login(@RequestParam("username") String username, @RequestParam("password") String passwrod, @RequestParam("flg") String flg) {
+        if (Constants.REGISTER_O.equals(flg)) {
+            List<User> users = userServiceImp.userByUsername(username);
+            if (users.isEmpty()) {
+                User user = new User();
+                user.setUsername(username);
+                user.setPassword(passwrod);
+                userServiceImp.insert(user);
+            } else {
+                return returnFailed("该用户已存在!");
+            }
+        } else if (Constants.LOGIN_1.equals(flg)) {
+            List<User> users = userServiceImp.userByUsername(username);
             for (User u : users) {
                 if (MD5Util.MD5(passwrod).equals(u.getPassword())) {
                     //设置缓存时间为90000秒
@@ -33,6 +45,10 @@ public class IndexController {
                 }
             }
             return returnFailed("用户名不正确!");
+        }
+
+        return returnFailed("用户名不正确!");
+
 
     }
 

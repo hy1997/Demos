@@ -13,38 +13,49 @@
     <script type="text/javascript">
         var getcontentPath = "http://" + window.location.host + "/";
         var contentPath = getcontentPath;// 获取应用路径
+        //注册
+        $(function () {
+            $(".btn").click(function () {
+                check();
+                Login(0);
+            });
+        });
+        //登入
         $(function () {
             $("#login").click(function () {
-                var $username = $("#username");
-                var $password = $("#password");
-                if ($username.val() == "") {
-                    $username.focus();
-                    alert('请输入账户');
-                    return false;
-                } else if ($password.val() == "") {
-                    $password.focus();
-                    alert('请输入密码');
-                    return false;
-                } else {
-                    CheckLogin(0);
-                }
+                check()
+                Login(1);
             });
         });
 
+        function check() {
+            var $username = $("#username");
+            var $password = $("#password");
+            if ($username.val() == "") {
+                $username.focus();
+                alert('请输入账户');
+                return false;
+            } else if ($password.val() == "") {
+                $password.focus();
+                alert('请输入密码');
+                return false;
+            }
+        }
+
         //登录验证
-        function CheckLogin(autologin) {
+        function Login(flg) {
             var username = $.trim($("#username").val());
             var password = $.trim($("#password").val());
             $.ajax({
                 url: contentPath + "login",
-                data: {"username": $.trim(username), "password": $.trim(password)},
+                data: {"username": $.trim(username), "password": $.trim(password), "flg": flg},
                 type: "post",
                 dataType: "JSON",
                 success: function (data) {
                     if (data.type) {
                         window.location.href = contentPath + 'index1';
                     } else {
-                        alert(data.obj, 0);
+                        alert(data.obj);
                     }
                 }
             });
@@ -57,6 +68,9 @@
     <div class="form row">
         <div class="form-horizontal col-md-offset-3" id="login_form">
             <h3 class="form-title">LOGIN</h3>
+            <div class="reg col-md-offset-9">
+                <button class="btn btn-default btn-sm pull-right" type="button">注册</button>
+            </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
@@ -76,6 +90,7 @@
                 <div class="form-group col-md-offset-9">
                     <button class="btn btn-success pull-right" id="login" name="submit" type="submit">登录</button>
                 </div>
+
             </div>
         </div>
     </div>

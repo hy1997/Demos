@@ -23,3 +23,9 @@ body{
 .fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
 input[type="text"],input[type="password"]{padding-left:26px;}
 .checkbox{padding-left:21px;}
+
+.btn {
+    margin-top: -20px;
+    margin-right: 80px
+}
+

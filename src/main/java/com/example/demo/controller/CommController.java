@@ -18,7 +18,7 @@ public class CommController {
 
     @RequestMapping("/index1")
     public String index1(){
-        return "head";
+        return "adminlte";
     }
 
     @RequestMapping("/shrn")

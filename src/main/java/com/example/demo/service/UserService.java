@@ -27,4 +27,10 @@ public interface UserService {
      */
     public User queryAll();
 
+    /**
+     * 新增用户
+     *
+     * @return
+     */
+    public void insert(User user);
 }

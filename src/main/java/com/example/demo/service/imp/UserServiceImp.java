@@ -29,4 +29,9 @@ public class UserServiceImp implements UserService {
     public User queryAll() {
         return null;
     }
+
+    @Override
+    public void insert(User user) {
+        userMapper.insert(user);
+    }
 }
