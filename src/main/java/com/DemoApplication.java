@@ -1,9 +1,7 @@
 package com;
 
-import com.example.demo.interceptor.LoginInterceptor;
-import com.example.demo.interceptor.WebMvcConfg;
-import com.example.redis.RedisUtil;
-import org.apache.catalina.core.ApplicationContext;
+import com.huyi.demo.interceptor.WebMvcConfg;
+import com.huyi.redis.RedisUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

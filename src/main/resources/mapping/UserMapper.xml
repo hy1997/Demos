@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.mapper.UserMapper">
+<mapper namespace="com.huyi.demo.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.demo.po.User">
+    <resultMap id="BaseResultMap" type="com.huyi.demo.po.User">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="username" jdbcType="VARCHAR" property="userName"/>
         <result column="password" jdbcType="VARCHAR" property="passWord"/>
     </resultMap>
 
-    <select id="userByUsername" parameterType="String" resultType="com.example.demo.po.User">
+    <select id="userByUsername" parameterType="String" resultType="com.huyi.demo.po.User">
         select username,password from user where 1=1
         <if test="_parameter != null">
             and username= #{username}
         </if>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.demo.po.User">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.huyi.demo.po.User">
         insert into user (username,password,register_Ip)
         values (#{username},#{password},#{registerIp})
     </insert>
