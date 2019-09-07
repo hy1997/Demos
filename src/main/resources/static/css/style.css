@@ -1,5 +1,5 @@
 body{
-    background: url("http://b.hiphotos.baidu.com/image/pic/item/f2deb48f8c5494eed9565a5826f5e0fe99257e7e.jpg");
+    background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567783185439&di=255754b563bff80f0b244d65e255597a&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F574e9258d109b3de8d605a1bc6bf6c81810a4ce1.jpg");
 
     animation-name:myfirst;
     animation-duration:12s;
@@ -13,10 +13,18 @@ body{
 }
 @keyframes myfirst
 {
-    0%   {background:url("http://d.hiphotos.baidu.com/image/pic/item/359b033b5bb5c9eaee2367a2de39b6003bf3b39b.jpg");}
-    34%  {background:url("http://f.hiphotos.baidu.com/image/pic/item/79f0f736afc379319740e268e0c4b74543a91142.jpg");}
-    67%  {background:url("http://e.hiphotos.baidu.com/image/pic/item/faedab64034f78f06b54e0b272310a55b3191c17.jpg");}
-    100% {background:url("http://d.hiphotos.baidu.com/image/pic/item/3812b31bb051f81935ab7b0bd1b44aed2f73e7e1.jpg");}
+    0% {
+        background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567783185437&di=5d07633e2e071db322c6126295e84723&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff2deb48f8c5494ee0d35b76a27f5e0fe99257eaa.jpg");
+    }
+    34% {
+        background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567783185435&di=4be184403a296bac338bebd5c12d9a62&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F6159252dd42a2834890a8f7851b5c9ea15cebf11.jpg");
+    }
+    67% {
+        background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567783185432&di=ff73264e43f2d78aa36494195914147b&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F2cf5e0fe9925bc3158e7b8eb54df8db1cb13700e.jpg");
+    }
+    100% {
+        background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567783185431&di=79141eb8d7edc338017efff0d8859871&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0823dd54564e9258df7f3f9d9682d158ccbf4e7d.jpg");
+    }
 }
 .form{background: rgba(255,255,255,0.2);width:400px;margin:120px auto;}
 /*阴影*/
