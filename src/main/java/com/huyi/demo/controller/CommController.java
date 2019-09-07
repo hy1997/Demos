@@ -8,7 +8,7 @@ public class CommController {
 
     @RequestMapping("/index")
     public String index(){
-        return "index";
+        return "login-page";
     }
 
     @RequestMapping("/index1")
