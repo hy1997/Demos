@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -85,16 +86,18 @@ public class IndexController {
 
     @RequestMapping(value = "/queryUsers", produces = "text/json;charset=UTF-8")
     public String queryUsers() {
-        String s = JSON.toJSONString(userServiceImp.queryAll());
-        System.out.println(s);
-        return s;
-      /*  for (User user: users) {
-            String username=user.getUsername();
-            String rows = new String("{\"username\":"+stringToJson(user.getUsername())+",\"password\":"+stringToJson(user.getPassword())+"}");
-           return  rows;
-        }
-        return  null;*/
+        return JSON.toJSONString(userServiceImp.queryAll());
     }
 
-
+    /**
+     * 退出登入
+     *
+     * @return
+     */
+    @RequestMapping(value = "/loginOut", produces = "text/json;charset=UTF-8")
+    public String loginOut() {
+        JSON.parse(returnSuccess(null));
+        String s = JSON.toJSONString(returnSuccess(null));
+        return s;
+    }
 }
