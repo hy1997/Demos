@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             // 未登录，给出错误信息，
             request.setAttribute("msg", "无权限请先登录");
             // 获取request返回页面到登录页
-            request.getRequestDispatcher("/index").forward(request, response);
+            request.getRequestDispatcher("/login-page").forward(request, response);
             return false;
         } else {
             // 已登录，放行

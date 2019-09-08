@@ -25,7 +25,7 @@ public interface UserService {
      *
      * @return
      */
-    public User queryAll();
+    public List<User> queryAll();
 
     /**
      * 新增用户

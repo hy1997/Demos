@@ -20,7 +20,7 @@
             for (var t in n) i.push(t + "=" + n[t]);
             return i.join("&")
         }, e = function (n) {
-            return n.etype = "speed", n.page = "index", n.logid = bdimgdata.logid, n.sid = bdimgdata.sid, n.wh = bdimgdata.wh, n.sampid = bdimgdata.sampid, n.app = "index", n.spat = bdimgdata.spat, n.protocol = bdimgdata.protocol, n
+            return n.etype = "speed", n.page = "index1.html", n.logid = bdimgdata.logid, n.sid = bdimgdata.sid, n.wh = bdimgdata.wh, n.sampid = bdimgdata.sampid, n.app = "index1.html", n.spat = bdimgdata.spat, n.protocol = bdimgdata.protocol, n
         }, o = {}, r = {
             set: function (n, t) {
                 n && (i[n] = t || 0)
@@ -809,9 +809,9 @@ var resizeTagCon = function () {
     });
 }();
 !function () {
-    window.tn = 'index';
+    window.tn = 'index1.html';
     window.vsid = 'da552ebb1aa3119ec13d4538fc02031ea0b656fc';
-    if ('index' === window.tn || 'result' === window.tn || 'detail' === window.tn) {
+    if ('index1.html' === window.tn || 'result' === window.tn || 'detail' === window.tn) {
         var sttb = document.getElementById('sttb');
         sttb.removeAttribute && sttb.removeAttribute('title');
     }
@@ -887,7 +887,7 @@ var resizeTagCon = function () {
     require.async(['common:widget/ui/monitorRequest/monitorRequest'], function (monitorRequest) {
         var userid = "";
         var q = "";
-        var tn = "index";
+        var tn = "index1.html";
         var host = "//imgstat.baidu.com/4.gif";
         var hostSweb = "//image.baidu.com/pv/pv2.gif";
         var rsw = "";

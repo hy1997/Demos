@@ -6,19 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CommController {
 
-    @RequestMapping("/index")
-    public String index(){
+    @RequestMapping("/")
+    public String login() {
         return "login-page";
     }
 
-    @RequestMapping("/index1")
-    public String index1(){
-        return "adminlte";
-    }
-
-    @RequestMapping("/shrn")
-    public String shrn() {
-        return "shrn";
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
     }
 
 }

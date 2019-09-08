@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script sec="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        var getcontentPath = "http://" + window.location.host + "/";
+        var contentPath = getcontentPath;// 获取应用路径
+        //注册
+        $(function () {
+            $("#reg").click(function () {
+                check();
+                Login(0);
+            });
+        });
+        //登入
+        $(function () {
+            $("#login").click(function () {
+                check()
+                Login(1);
+            });
+        });
+
+        function check() {
+            var $username = $("#username");
+            var $password = $("#password");
+            if ($username.val() == "") {
+                $username.focus();
+                alert('请输入账户');
+                return false;
+            } else if ($password.val() == "") {
+                $password.focus();
+                alert('请输入密码');
+                return false;
+            }
+        }
+
+        //登录验证
+        function Login(flg) {
+            var username = $.trim($("#username").val());
+            var password = $.trim($("#password").val());
+            $.ajax({
+                url: contentPath + "login",
+                data: {"username": $.trim(username), "password": $.trim(password), "flg": flg},
+                type: "post",
+                dataType: "JSON",
+                success: function (data) {
+                    if (data.type) {
+                        window.location.href = contentPath + 'index1';
+                    } else {
+                        alert(data.obj);
+                        return false;
+                    }
+                }
+            });
+
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="form row">
+        <div class="form-horizontal col-md-offset-3" id="login_form">
+            <h3 class="form-title">LOGIN</h3>
+            <div class="reg col-md-offset-9">
+                <button class="btn btn-default btn-sm pull-right" id="reg" type="button">注册</button>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    <input autofocus="autofocus" class="form-control required" id="username" maxlength="20"
+                           name="username" placeholder="Username" type="text"/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-lock fa-lg"></i>
+                    <input class="form-control required" id="password" maxlength="8" name="password"
+                           placeholder="Password" type="password"/>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox">
+                        <input name="remember" type="checkbox" value="1"/>记住我
+                    </label>
+                </div>
+                <div class="form-group col-md-offset-9">
+                    <button class="btn btn-success pull-right" id="login" name="submit" type="submit">登录</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>

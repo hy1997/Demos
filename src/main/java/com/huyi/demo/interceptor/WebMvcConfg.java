@@ -14,7 +14,7 @@ public class WebMvcConfg implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加拦截的请求，并排除几个不拦截的请求
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/index", "/css/*", "/login", "/assets/*");
+//        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/login-page", "/assets/*");
     }
 
 

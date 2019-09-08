@@ -20,5 +20,8 @@
         values (#{username},#{password},#{registerIp})
     </insert>
 
+    <select id="queryAll" resultType="com.huyi.demo.po.User">
+        select id,username,password from user
+    </select>
 
 </mapper>

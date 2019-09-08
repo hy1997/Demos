@@ -26,8 +26,8 @@ public class UserServiceImp implements UserService {
 
 
     @Override
-    public User queryAll() {
-        return null;
+    public List<User> queryAll() {
+        return userMapper.queryAll();
     }
 
     @Override

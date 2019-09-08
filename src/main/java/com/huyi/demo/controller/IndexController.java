@@ -1,10 +1,12 @@
 package com.huyi.demo.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.huyi.demo.Utils.MD5Util;
 import com.huyi.demo.constant.Constants;
 import com.huyi.demo.po.User;
 import com.huyi.demo.service.imp.UserServiceImp;
 import com.huyi.redis.RedisUtil;
+import org.openqa.selenium.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,4 +81,20 @@ public class IndexController {
     public String stringToJson(String sta) {
         return "\"" + sta + "\"";
     }
+
+
+    @RequestMapping(value = "/queryUsers", produces = "text/json;charset=UTF-8")
+    public String queryUsers() {
+        String s = JSON.toJSONString(userServiceImp.queryAll());
+        System.out.println(s);
+        return s;
+      /*  for (User user: users) {
+            String username=user.getUsername();
+            String rows = new String("{\"username\":"+stringToJson(user.getUsername())+",\"password\":"+stringToJson(user.getPassword())+"}");
+           return  rows;
+        }
+        return  null;*/
+    }
+
+
 }
