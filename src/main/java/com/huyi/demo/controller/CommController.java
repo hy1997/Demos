@@ -11,7 +11,7 @@ public class CommController {
         return "login-page";
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/api/index")
     public String index() {
         return "index";
     }

@@ -6,8 +6,8 @@ import com.huyi.demo.constant.Constants;
 import com.huyi.demo.po.User;
 import com.huyi.demo.service.imp.UserServiceImp;
 import com.huyi.redis.RedisUtil;
-import org.openqa.selenium.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class IndexController {
     @Autowired
     UserServiceImp userServiceImp;
@@ -40,6 +41,7 @@ public class IndexController {
             for (User u : users) {
                 if (MD5Util.MD5(passwrod).equals(u.getPassword())) {
                     //设置缓存时间为90000秒
+
                     redisUtil.set("username", username, 9000);
                     return returnSuccess(null);
                 } else {

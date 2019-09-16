@@ -24,4 +24,5 @@
         select id,username,password from user
     </select>
 
+
 </mapper>

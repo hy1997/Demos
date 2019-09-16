@@ -180,13 +180,13 @@
         var username = $.trim($(".username").val());
         var password = $.trim($(".password").val());
         $.ajax({
-            url: contentPath + "login",
+            url: contentPath + "/api/login",
             data: {"username": $.trim(username), "password": $.trim(password), "flg": flg},
             type: "post",
             dataType: "JSON",
             success: function (data) {
                 if (data.type) {
-                    window.location.href = contentPath + 'index';
+                    window.location.href = "/api/index";
                 } else {
                     alert(data.obj);
                     return false;
