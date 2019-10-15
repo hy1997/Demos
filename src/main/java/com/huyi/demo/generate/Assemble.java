@@ -1,5 +1,7 @@
 package com.huyi.demo.generate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,7 @@ import java.util.List;
 @Component
 public class Assemble {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     DataSourceConfiguration dataSourceConfiguration;
@@ -40,9 +43,11 @@ public class Assemble {
                     }
                     stringBuffer.append("\r\n"+"}");
                     list.add(stringBuffer);
+                    logger.info("生成文件夹路径！：" + dataSourceConfiguration.getAddress());
                     for (StringBuffer buffer: list  ) {
                         readJaveFile(buffer, GenerateUtils.toUpper(resultSet.getString("TABLE_NAME")));
                     }
+                    logger.info("代码生成成功！");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

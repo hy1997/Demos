@@ -1,5 +1,9 @@
 package com.huyi.demo.generate;
 
+import com.huyi.demo.Utils.StringUtils;
+import com.huyi.redis.RedisUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +16,16 @@ import java.util.Map;
 @Service
 public class GenerateService {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
     @Autowired
     DataSourceConfiguration dataSource;
     @Autowired
     Assemble assemble;
+//    @Autowired
+//    RedisUtil redisUtil;
+
     /**
      * 获取数据库连接并注入spring容器
      * @return
@@ -24,19 +34,19 @@ public class GenerateService {
      */
 
     public  Connection   getConnection() throws SQLException, ClassNotFoundException {
-        Map<String,Connection> mapConn= new HashMap<>();
+        logger.info("================  获取数据库连接开始！");
         Class.forName(dataSource.getDriver());
         String url = dataSource.getUrl();
         String user = dataSource.getName();
         String password = dataSource.getPwd();
-        Connection conn = DriverManager.getConnection(url, user, password);
-        if(mapConn.containsKey("conn")){
-            conn=mapConn.get("conn");
-        }else {
-            mapConn.put("conn", conn);
+        Connection conn = null;
+//        conn=(Connection) redisUtil.get("conn");
+        if (conn == null) {
+            conn = DriverManager.getConnection(url, user, password);
+//            redisUtil.set("conn",conn);
         }
-        System.out.println("获取数据库连接成功");
-        return mapConn.get("conn");
+        logger.info("=================获取数据库连接数据成功");
+        return conn;
     }
 
 
@@ -48,8 +58,11 @@ public class GenerateService {
             DatabaseMetaData metaData = conn.getMetaData();
             String dataBaseType = metaData.getDatabaseProductName();
             String dataBas = conn.getCatalog();
+            logger.info("===============获取到" + dataBas + ":库查询语句");
             String sql = GenerateUtils.select(GenerateConstant.TABLES, dataBas);
+            logger.info("===============执行查询sql" + sql);
             resultSet = GenerateUtils.getResultSet(conn, sql);
+            logger.info("===============根据查询结果生成对应数据");
             list= assemble.generateJvavaClass(resultSet,dataBas,conn);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -79,6 +79,7 @@ public class GenerateUtils {
 
 
     public static  ResultSet getResultSet(Connection conn, String sql) throws SQLException {
+
         PreparedStatement prepareStatement = conn.prepareStatement(sql);
         ResultSet rSet = prepareStatement.executeQuery(sql);
         return rSet;
